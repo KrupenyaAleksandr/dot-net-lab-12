@@ -62,6 +62,18 @@
             this.bindingNavigatorMoveLastItemSportsman = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSportsmanSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorSaveSportsman = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelPictue = new System.Windows.Forms.Label();
+            this.labelSportClub = new System.Windows.Forms.Label();
+            this.labelLastName = new System.Windows.Forms.Label();
+            this.labelMiddleName = new System.Windows.Forms.Label();
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.comboBoxSportClub = new System.Windows.Forms.ComboBox();
+            this.sportclubBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.textBoxMiddleName = new System.Windows.Forms.TextBox();
+            this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.photoPictureBox = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.loadFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +85,6 @@
             this.dataGridViewSportClub = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sportclubBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorSportClub = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItemSportClub = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItemSportClub = new System.Windows.Forms.ToolStripLabel();
@@ -88,15 +99,9 @@
             this.bindingNavigatorSportClubSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorSaveSportClub = new System.Windows.Forms.ToolStripButton();
             this.sport_clubTableAdapter = new dot_net_lab_12.SportDBDataSetTableAdapters.sport_clubTableAdapter();
-            this.textBoxFirstName = new System.Windows.Forms.TextBox();
-            this.textBoxMiddleName = new System.Windows.Forms.TextBox();
-            this.textBoxLastName = new System.Windows.Forms.TextBox();
-            this.comboBoxSportClub = new System.Windows.Forms.ComboBox();
-            this.labelFirstName = new System.Windows.Forms.Label();
-            this.labelMiddleName = new System.Windows.Forms.Label();
-            this.labelLastName = new System.Windows.Forms.Label();
-            this.labelSportClub = new System.Windows.Forms.Label();
-            this.labelPictue = new System.Windows.Forms.Label();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sportDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sportDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sportsmanBindingSource)).BeginInit();
@@ -110,14 +115,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSportsman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorSportsman)).BeginInit();
             this.bindingNavigatorSportsman.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sportclubBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabPageSportClub.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSportClub)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sportclubBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorSportClub)).BeginInit();
             this.bindingNavigatorSportClub.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // sportDBDataSetBindingSource
@@ -215,6 +222,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.ContextMenuStrip = this.contextMenuStrip2;
             this.splitContainer1.Panel2.Controls.Add(this.labelPictue);
             this.splitContainer1.Panel2.Controls.Add(this.labelSportClub);
             this.splitContainer1.Panel2.Controls.Add(this.labelLastName);
@@ -415,6 +423,106 @@
             this.bindingNavigatorSaveSportsman.Text = "toolStripButton1";
             this.bindingNavigatorSaveSportsman.Click += new System.EventHandler(this.bindingNavigatorSaveSportsman_Click);
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(114, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
+            this.toolStripMenuItem1.Text = "Печать";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // labelPictue
+            // 
+            this.labelPictue.AutoSize = true;
+            this.labelPictue.Location = new System.Drawing.Point(25, 255);
+            this.labelPictue.Name = "labelPictue";
+            this.labelPictue.Size = new System.Drawing.Size(72, 13);
+            this.labelPictue.TabIndex = 9;
+            this.labelPictue.Text = "Фотография";
+            // 
+            // labelSportClub
+            // 
+            this.labelSportClub.AutoSize = true;
+            this.labelSportClub.Location = new System.Drawing.Point(25, 195);
+            this.labelSportClub.Name = "labelSportClub";
+            this.labelSportClub.Size = new System.Drawing.Size(52, 13);
+            this.labelSportClub.TabIndex = 8;
+            this.labelSportClub.Text = "Команда";
+            // 
+            // labelLastName
+            // 
+            this.labelLastName.AutoSize = true;
+            this.labelLastName.Location = new System.Drawing.Point(25, 135);
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.Size = new System.Drawing.Size(56, 13);
+            this.labelLastName.TabIndex = 7;
+            this.labelLastName.Text = "Фамилия";
+            // 
+            // labelMiddleName
+            // 
+            this.labelMiddleName.AutoSize = true;
+            this.labelMiddleName.Location = new System.Drawing.Point(25, 75);
+            this.labelMiddleName.Name = "labelMiddleName";
+            this.labelMiddleName.Size = new System.Drawing.Size(54, 13);
+            this.labelMiddleName.TabIndex = 6;
+            this.labelMiddleName.Text = "Отчество";
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName.AutoSize = true;
+            this.labelFirstName.Location = new System.Drawing.Point(25, 15);
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.Size = new System.Drawing.Size(29, 13);
+            this.labelFirstName.TabIndex = 5;
+            this.labelFirstName.Text = "Имя";
+            // 
+            // comboBoxSportClub
+            // 
+            this.comboBoxSportClub.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sportsmanBindingSource, "sport_club_id", true));
+            this.comboBoxSportClub.DataSource = this.sportclubBindingSource;
+            this.comboBoxSportClub.DisplayMember = "title";
+            this.comboBoxSportClub.FormattingEnabled = true;
+            this.comboBoxSportClub.Location = new System.Drawing.Point(22, 215);
+            this.comboBoxSportClub.Name = "comboBoxSportClub";
+            this.comboBoxSportClub.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSportClub.TabIndex = 4;
+            this.comboBoxSportClub.ValueMember = "id";
+            // 
+            // sportclubBindingSource
+            // 
+            this.sportclubBindingSource.DataMember = "sport_club";
+            this.sportclubBindingSource.DataSource = this.sportDBDataSetBindingSource;
+            // 
+            // textBoxLastName
+            // 
+            this.textBoxLastName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sportsmanBindingSource, "last_name", true));
+            this.textBoxLastName.Location = new System.Drawing.Point(22, 155);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(121, 20);
+            this.textBoxLastName.TabIndex = 3;
+            // 
+            // textBoxMiddleName
+            // 
+            this.textBoxMiddleName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sportsmanBindingSource, "middle_name", true));
+            this.textBoxMiddleName.Location = new System.Drawing.Point(22, 95);
+            this.textBoxMiddleName.Name = "textBoxMiddleName";
+            this.textBoxMiddleName.Size = new System.Drawing.Size(121, 20);
+            this.textBoxMiddleName.TabIndex = 2;
+            // 
+            // textBoxFirstName
+            // 
+            this.textBoxFirstName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sportsmanBindingSource, "first_name", true));
+            this.textBoxFirstName.Location = new System.Drawing.Point(22, 35);
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.Size = new System.Drawing.Size(121, 20);
+            this.textBoxFirstName.TabIndex = 1;
+            // 
             // photoPictureBox
             // 
             this.photoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -497,6 +605,8 @@
             this.dataGridViewSportClub.Name = "dataGridViewSportClub";
             this.dataGridViewSportClub.Size = new System.Drawing.Size(786, 431);
             this.dataGridViewSportClub.TabIndex = 1;
+            this.dataGridViewSportClub.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSportClub_CellEndEdit);
+            this.dataGridViewSportClub.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewSportClub_CellValidating);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -512,11 +622,6 @@
             this.titleDataGridViewTextBoxColumn.HeaderText = "Название";
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             this.titleDataGridViewTextBoxColumn.Width = 160;
-            // 
-            // sportclubBindingSource
-            // 
-            this.sportclubBindingSource.DataMember = "sport_club";
-            this.sportclubBindingSource.DataSource = this.sportDBDataSetBindingSource;
             // 
             // bindingNavigatorSportClub
             // 
@@ -547,6 +652,7 @@
             this.bindingNavigatorSportClub.Size = new System.Drawing.Size(786, 25);
             this.bindingNavigatorSportClub.TabIndex = 0;
             this.bindingNavigatorSportClub.Text = "bindingNavigator2";
+            this.bindingNavigatorSportClub.Click += new System.EventHandler(this.bindingNavigatorSportClub_Click);
             // 
             // bindingNavigatorAddNewItemSportClub
             // 
@@ -647,86 +753,24 @@
             // 
             this.sport_clubTableAdapter.ClearBeforeFill = true;
             // 
-            // textBoxFirstName
+            // printPreviewDialog1
             // 
-            this.textBoxFirstName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sportsmanBindingSource, "first_name", true));
-            this.textBoxFirstName.Location = new System.Drawing.Point(22, 35);
-            this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.Size = new System.Drawing.Size(121, 20);
-            this.textBoxFirstName.TabIndex = 1;
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
-            // textBoxMiddleName
+            // printDocument1
             // 
-            this.textBoxMiddleName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sportsmanBindingSource, "middle_name", true));
-            this.textBoxMiddleName.Location = new System.Drawing.Point(22, 95);
-            this.textBoxMiddleName.Name = "textBoxMiddleName";
-            this.textBoxMiddleName.Size = new System.Drawing.Size(121, 20);
-            this.textBoxMiddleName.TabIndex = 2;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // textBoxLastName
+            // errorProvider1
             // 
-            this.textBoxLastName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sportsmanBindingSource, "last_name", true));
-            this.textBoxLastName.Location = new System.Drawing.Point(22, 155);
-            this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(121, 20);
-            this.textBoxLastName.TabIndex = 3;
-            // 
-            // comboBoxSportClub
-            // 
-            this.comboBoxSportClub.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sportsmanBindingSource, "sport_club_id", true));
-            this.comboBoxSportClub.DataSource = this.sportclubBindingSource;
-            this.comboBoxSportClub.DisplayMember = "title";
-            this.comboBoxSportClub.FormattingEnabled = true;
-            this.comboBoxSportClub.Location = new System.Drawing.Point(22, 215);
-            this.comboBoxSportClub.Name = "comboBoxSportClub";
-            this.comboBoxSportClub.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxSportClub.TabIndex = 4;
-            this.comboBoxSportClub.ValueMember = "id";
-            // 
-            // labelFirstName
-            // 
-            this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Location = new System.Drawing.Point(25, 15);
-            this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(29, 13);
-            this.labelFirstName.TabIndex = 5;
-            this.labelFirstName.Text = "Имя";
-            // 
-            // labelMiddleName
-            // 
-            this.labelMiddleName.AutoSize = true;
-            this.labelMiddleName.Location = new System.Drawing.Point(25, 75);
-            this.labelMiddleName.Name = "labelMiddleName";
-            this.labelMiddleName.Size = new System.Drawing.Size(54, 13);
-            this.labelMiddleName.TabIndex = 6;
-            this.labelMiddleName.Text = "Отчество";
-            // 
-            // labelLastName
-            // 
-            this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(25, 135);
-            this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(56, 13);
-            this.labelLastName.TabIndex = 7;
-            this.labelLastName.Text = "Фамилия";
-            // 
-            // labelSportClub
-            // 
-            this.labelSportClub.AutoSize = true;
-            this.labelSportClub.Location = new System.Drawing.Point(25, 195);
-            this.labelSportClub.Name = "labelSportClub";
-            this.labelSportClub.Size = new System.Drawing.Size(52, 13);
-            this.labelSportClub.TabIndex = 8;
-            this.labelSportClub.Text = "Команда";
-            // 
-            // labelPictue
-            // 
-            this.labelPictue.AutoSize = true;
-            this.labelPictue.Location = new System.Drawing.Point(25, 255);
-            this.labelPictue.Name = "labelPictue";
-            this.labelPictue.Size = new System.Drawing.Size(72, 13);
-            this.labelPictue.TabIndex = 9;
-            this.labelPictue.Text = "Фотография";
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormMain
             // 
@@ -735,6 +779,7 @@
             this.ClientSize = new System.Drawing.Size(800, 512);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "Form1";
@@ -757,6 +802,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorSportsman)).EndInit();
             this.bindingNavigatorSportsman.ResumeLayout(false);
             this.bindingNavigatorSportsman.PerformLayout();
+            this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sportclubBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
@@ -764,10 +811,10 @@
             this.tabPageSportClub.ResumeLayout(false);
             this.tabPageSportClub.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSportClub)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sportclubBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorSportClub)).EndInit();
             this.bindingNavigatorSportClub.ResumeLayout(false);
             this.bindingNavigatorSportClub.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -841,6 +888,11 @@
         private System.Windows.Forms.Label labelSportClub;
         private System.Windows.Forms.Label labelLastName;
         private System.Windows.Forms.Label labelMiddleName;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
