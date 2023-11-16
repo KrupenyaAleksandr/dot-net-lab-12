@@ -506,6 +506,7 @@
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(121, 20);
             this.textBoxLastName.TabIndex = 3;
+            this.textBoxLastName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLastName_Validating);
             // 
             // textBoxMiddleName
             // 
@@ -522,6 +523,7 @@
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(121, 20);
             this.textBoxFirstName.TabIndex = 1;
+            this.textBoxFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxFirstName_Validating);
             // 
             // photoPictureBox
             // 
@@ -605,8 +607,6 @@
             this.dataGridViewSportClub.Name = "dataGridViewSportClub";
             this.dataGridViewSportClub.Size = new System.Drawing.Size(786, 431);
             this.dataGridViewSportClub.TabIndex = 1;
-            this.dataGridViewSportClub.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSportClub_CellEndEdit);
-            this.dataGridViewSportClub.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewSportClub_CellValidating);
             // 
             // idDataGridViewTextBoxColumn1
             // 

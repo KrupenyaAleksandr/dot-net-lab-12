@@ -22,7 +22,6 @@ namespace dot_net_lab_12
         public FormMain()
         {
             InitializeComponent();
-            dataGridViewSportClub.Validating += dataGridViewSportClub_Validating;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -136,24 +135,32 @@ namespace dot_net_lab_12
             }
         }
 
-        private void dataGridViewSportClub_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void textBoxFirstName_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
+            if (String.IsNullOrWhiteSpace(textBoxFirstName.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(textBoxFirstName, "Введите данные");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(textBoxFirstName, null);
+            }
+        }
+
+        private void textBoxLastName_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(textBoxLastName.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(textBoxLastName, "Введите данные");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(textBoxLastName, null);
+            }
         }
     }
 }
-
-
-/*private void dataGridViewSportClub_Validating(object sender, CancelEventArgs e)
-{
-    if (dataGridViewSportClub.Rows[dataGridViewSportClub.CurrentCell.RowIndex].Cells["titleDataGridViewTextBoxColumn"].Value.ToString().Length < 2)
-    {
-        e.Cancel = true;
-        errorProvider1.SetError(dataGridViewSportClub, "Не указано название!");
-    }
-    else
-    {
-        e.Cancel = false;
-        errorProvider1.Clear();
-    }
-}*/
